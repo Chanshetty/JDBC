@@ -1,0 +1,36 @@
+package JdbcSetup;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class UpdateStatement {
+	
+	DbConfigration dbConfigration;
+	Connection connection;
+
+	public UpdateStatement(DbConfigration dbConfigration) {
+		super();
+		this.dbConfigration = dbConfigration;
+		this.connection=dbConfigration.getConnection();
+	}
+	
+public void updateStatement() {
+	
+	try {
+		Statement st=connection.createStatement();
+		String query="UPDATE `selflearn`.`classroom` SET `Marks` = 99 WHERE `StudentId` = 162 ";
+		int roweffected=st.executeUpdate(query);
+		System.out.println(roweffected);
+		
+		
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+}
+	
+	
+}

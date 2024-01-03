@@ -1,0 +1,51 @@
+package JdbcSetup;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DbConfigration {
+    private String url = "jdbc:mysql://localhost:3306/selflearn";
+    private String userName = "root";
+    private String passWord = "Chetu@2426";
+
+    public Connection getConnection() {
+        Connection connection = null;
+        Statement statement = null;
+
+        try {
+            connection = DriverManager.getConnection(url, userName, passWord);
+            boolean isConnected = connection.isValid(5);
+            System.out.println("Connection status: " + isConnected);
+            Statement st1=connection.createStatement();
+    		String query1="Select * from classroom";
+    		ResultSet rs1=st1.executeQuery(query1);
+    		
+    		while(rs1.next()) {
+    			int rollNo=rs1.getInt(1);
+    			int id =rs1.getInt("StudentId");  /* can retrive with index and exact column name as in db*/
+    			String name=rs1.getString("StudentName");
+    			int marks =rs1.getInt(4);
+    			System.out.println("Roll No: " + rollNo + ", ID: " + id + ", Name: " + name + ", Marks: " + marks);
+        }
+        }
+    		catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                // Close statement and connection in a finally block
+                if (statement != null) {
+                    statement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+		return connection;
+    
+}

@@ -1,0 +1,21 @@
+package JdbcSetup;
+
+import java.sql.Connection;
+
+public class SelectStatement {
+	
+//	DbConfigration dbconfigration;
+//
+//	public SelectStatement(DbConfigration dbconfigration) {
+//		super();
+//		this.dbconfigration = dbconfigration;
+//	}
+//	
+//	Connection connection=dbconfigration.getConnection();
+	
+  DbConfigration dbConfi = new DbConfigration();
+  Connection connection=dbConfi.getConnection();
+
+	
+  
+}

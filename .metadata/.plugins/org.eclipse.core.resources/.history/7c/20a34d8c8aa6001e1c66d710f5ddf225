@@ -1,0 +1,11 @@
+package JdbcSetup;
+
+public class JdbcMain {
+
+	public static void main(String[] args) {
+	DbConfigration dbConfi= new DbConfigration();
+	dbConfi.getConnection();
+
+	}
+
+}

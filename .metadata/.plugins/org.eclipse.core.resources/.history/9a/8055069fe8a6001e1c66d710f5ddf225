@@ -1,0 +1,23 @@
+package JdbcSetup;
+
+import java.sql.Connection;
+
+public class insertStatement {
+	
+	DbConfigration dbConfigration;
+
+	public insertStatement(DbConfigration dbConfigration) {
+		super();
+		this.dbConfigration = dbConfigration;
+	}
+	
+   Connection	connection= dbConfigration.getConnection();
+   
+   public void insertStatement{
+	   
+	   
+   }
+   
+}
+
+
